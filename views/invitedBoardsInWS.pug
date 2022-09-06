@@ -1,0 +1,183 @@
+extends base
+
+block content
+  -let i=0
+  .navigation
+    .profile
+      .img-nav
+        img(src=`/img/${user.photo}`, alt="user photo")
+    ul.menu
+      li.tooltip-element(data-tooltip="0")
+        a(href="http://127.0.0.1:5000/")
+          span.icon 
+            i.bx.bx-home-alt-2
+      li.tooltip-element(data-tooltip="1")
+        a(href='/invitedWS')
+          span.icon 
+            i.bx.bx-id-card
+      li.tooltip-element(data-tooltip="2")
+        a(href='/publicWorkspaces')
+          span.icon 
+            i.bx.bx-notepad
+      li.tooltip-element(data-tooltip="3")
+        a
+          span.icon.logoutt
+            i.bx.bx-log-out
+      .tooltip 
+        span.show Home
+        span Invited workspaces
+        span public workspaces
+        span Logout
+  header 
+    .user-header
+      a(href='/profile')
+        i.bx.bx-user
+      h3.user-name-header= `${user.name}`
+    ul 
+      li 
+        a.about(href="/About") About
+      li.work 
+        a Workspace:
+          ul.workspace
+        h4.title-w= `${createdBoards.wsName }`
+      li 
+        a.add.user
+          i.bx.bx-user
+      each member in createdBoards.wsMembers
+        -if(member.role === 'admin' && member._id.toString() === user.id)
+          li 
+            a.add.plus-i
+              i.bx.bx-plus
+    .plus-box
+      -if(createdBoards)
+        .inpu#input(data-id= `${createdBoards._id}`)
+          i.bx.bx-envelope
+          input.in-plus#add-email(type="email", placeholder="User E-mail")
+      button.cancelPlus cancel 
+      button.add-u +
+    .name-mem
+      .mem-model
+        .content-mem
+          h1.title-mem The User
+          each member in createdBoards.wsMembers
+            h2.mem-user= `${member.memberId.name}`
+            .mem-img
+              img(src=`/img/${member.memberId.photo}`, alt="")
+        button.close-mem cancel
+  .footer 
+    .copy-div 
+      p.copyright Copyright &copy; 2022
+    .social-footer
+      ul.social-icons
+        li 
+          a
+            i.bx.bxl-facebook 
+        li 
+          a
+            i.bx.bxl-google 
+        li 
+          a
+            i.bx.bxl-linkedin
+  .mainn 
+    .main-svg 
+      img.blob(src="/img/blob.svg", alt="")
+      img.blob2(src="/img/note.svg", alt="")
+    .card-div
+      -if(createdBoards)
+        each board in createdBoards.boards
+          .card 
+            .card-image
+                img(src= `/img/${board.bOwner.photo}`, alt="")
+            .card-text
+              h2.data= `${board.bName}`
+              h3 About 
+              p= `${board.bDescription}`
+            .date 
+              p= `from ${board.bStartDate.toString().split(' ').slice(0, 4).join('-')}`
+              p= `to ${(board.bEndDate === undefined || board.bEndDate === null) ? 'a non Specified Date' : board.bEndDate.toString().split(' ').slice(0, 4).join('-')}`
+            .card-stats
+              .stat 
+                .icon-card.svg-icon
+                  img.svgg(src="../img/h.svg", alt="")
+                  img.svgg.none(src="../img/m.svg", alt="")
+              .stat.border
+                .icon-card
+                  //- i.bx.bx-group= `${board.bMembers.length}`
+                  i.bx.bx-group= `${arr[i].size}`
+                    -i++
+              .stat 
+                .value.open-board(data-boardName= `${board._id}`) Visit 
+                .icon-card 
+                  i.bx.bx-log-in-circle 
+    each member in createdBoards.wsMembers 
+      -if((member.role === 'owner'|| member.role==='admin') && member.memberId.id === user.id)
+        .create-icon
+          button.plus(data.userid= `${member.memberId.id}`)
+            i.bx.bx-plus-medical.bx-tada
+  .create-B
+    .create-board-box
+      form.create-new-board
+        h3 create Board
+        img.board-img(src= `/img/${user.photo}`, alt="")
+        .input-group
+          label Board name
+          input#bName(type="text" , placeholder="Enter Board name")
+        .input-group
+          label End Date
+          input#bDate(type="date")
+        .input-group
+          label Description for your Board
+          input#bDesc(type="text")
+        .bo 
+          input.create-board.R(type="submit", name="newBoard", value="Create")
+          .cancel-board Cancel
+  .create-model
+    .modal 
+      h3 New Workspace
+      form.create-form
+        .single-in
+          input.input#ws-name(type="text")
+          label.title(for="ws-name") Title
+        .single-in
+            h4 Type:
+            input.rd#public(type="radio", name="type")
+            label.rdd(for="public") public
+            input.rd#private(type="radio", name="type")
+            label.rdd(for="private") private
+        input.closes(value="cancel")
+        input.ok(type="submit", value="create")
+  .notification-box 
+    .notification 
+      i.bx.bxs-bell
+      span.num-notification= `${user.tagsOnCards.length}`
+      ul 
+        each tag in user.tagsOnCards
+          li
+            span.img-noti 
+              img(src= `/img/${tag.cardOwner.photo}`)
+            span.text-noti= `${tag.cardOwner.name} tags you on ${tag.cardName}`
+      
+  .world 
+    i.bx.bx-world
+    span.numW= `${user.invitedWorkspaces.length}`
+    .dropdown-world
+      ul 
+        each invite in user.invitedWorkspaces
+          li
+            .notify-item 
+              .notify-img 
+                img(src= `/img/${invite.wsOwner.photo}`)
+              .notify-info 
+                p= `${invite.wsOwner.name} invite you to `
+                  span= `${invite.wsName}`
+              .notify-btn 
+                button.accept(data-inviteid= `${invite._id}`) Accept 
+                button.not(data-inviteid= `${invite._id}`) decline 
+
+  .alert.hide_Error
+    span
+      i.bx.bxs-error-circle
+    span.msg-error Waening: you have wrong !
+    span.close-error 
+      span 
+        i.bx.bx-x

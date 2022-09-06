@@ -1,0 +1,47 @@
+[
+  {
+    "_id": "20576d5afc13ae01fe0008d0",
+    "wsName": "My Workspace",
+    "wsOwner": "10576d5afc13ae01fe0007d0",
+    "background": "back-ground-2.jpg",
+    "wsDescreption": "bla bla for workspace",
+    "type": "public",
+    "wsMembers": [
+      "10576d5afc13ae01fe0007d0",
+      "10576d5afc13ae01fe0008d0",
+      "10576d5afc13ae01fd0007d0"
+    ]
+  },
+  {
+    "_id": "20576d5afc13ae01fe0008d1",
+    "wsName": "My Workspace X",
+    "wsOwner": "10576d5afc13ae01fe0007d0",
+    "background": "",
+    "wsDescreption": "bla bla for workspace X",
+    "type": "public"
+  },
+  {
+    "_id": "20576d5afc13ae01fe0008d2",
+    "wsName": "My Workspace 2",
+    "wsOwner": "10576d5afc13ae01fe0008d0",
+    "background": "",
+    "wsDescreption": "bla bla for workspace 2",
+    "type": "public"
+  },
+  {
+    "_id": "20576d5afc13ae01fe0008d3",
+    "wsName": "My Workspace 3",
+    "wsOwner": "10576d5afc13ae01fe0008d0",
+    "background": "",
+    "wsDescreption": "bla bla for workspace 3",
+    "type": "public"
+  },
+  {
+    "_id": "20576d5afc13ae01fe0008d4",
+    "wsName": "My Workspace 4",
+    "wsOwner": "10576d5afc13ae01fe0008d0",
+    "background": "",
+    "wsDescreption": "bla bla for workspace 4",
+    "type": "public"
+  }
+]

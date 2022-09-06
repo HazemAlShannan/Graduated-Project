@@ -1,0 +1,126 @@
+extends base
+
+block content
+
+  .navigation
+    .profile
+      .img-nav
+        img(src="./svg/IMG-20220402-WA0021.jpg", alt="")
+    ul.menu 
+      li.tooltip-element(data-tooltip="0")
+        a(href="#")
+          span.icon 
+            i.bx.bx-home-alt-2
+      li.tooltip-element(data-tooltip="1")
+        a(href="#")
+          span.icon 
+            i.bx.bx-id-card
+      li.tooltip-element(data-tooltip="2")
+        a(href="#")
+          span.icon 
+            i.bx.bx-notepad
+      li.tooltip-element(data-tooltip="3")
+        a(href="#")
+          span.icon 
+            i.bx.bx-user
+      li.tooltip-element(data-tooltip="4")
+        a(href="#")
+          span.icon 
+            i.bx.bx-log-out
+      .tooltip 
+        span.show Home 
+        span My Cards 
+        span My boards 
+        span Profile 
+        span Logout 
+  //- end navbar
+  header 
+    ul 
+      li 
+        a(href="#") About
+      li.work 
+        i.bx.bxs-chevron-down 
+        a(href="#") Workspace
+          ul.workspace
+            li 
+              a(href="#") my workspace
+            li 
+              a.btn(href="#" type="button") create 
+      li 
+        a.add(href="#")
+          i.bx-bx-user-plus 
+  //- end header
+  .footer 
+    .copy-div 
+      p.copyright Copyright &copy; 2022
+    .social-footer
+      ul.social-icons
+        li 
+          a(href="#")
+            i.bx.bxl.facebook 
+        li 
+          a(href="#")
+            i.bx.bxl-google 
+        li 
+          a(href="#")
+            i.bx.bxl-linkedin
+    //- end footer
+
+  main 
+      .container
+        .profile-pic-div
+          img(src="./svg/undraw_profile_pic_ic-5-t (1).svg", alt="")
+          input(type="file" id="file")
+          label(for="file" id="uploadBtn") choose pic
+        form.profile-form(action="#") 
+          .user-details
+            .input-box
+              span.details Full name 
+              input(type="text" placeholder="User Full Name" required)
+            .input-box
+              span.details User Name 
+              input(type="text" placeholder="User Name" required)
+            .input-box
+              span.details Email 
+              input(type="email" placeholder="User Email" required)
+            .input-box
+              span.details posation 
+              input(type="text" placeholder="User pos" required)
+            .input-box
+              span.details password 
+              input(type="password" placeholder="User password" required)
+            .input-box
+              span.details confirm password 
+              input(type="password" placeholder="confirm password" required)
+          .gender-details
+            input(type="radio" name="gender" id="dot-1")
+            input(type="radio" name="gender" id="dot-2")
+            span.gender-title Gender
+            .categroy
+              label(for="dot-1")
+                span.dot.one 
+                span.gender Male 
+              label(for="dot-2")
+                span.dot.two 
+                span.gender Female
+          .button 
+            input(type="submit" value="update")
+
+    //- end main   
+  .create-model
+    .modal 
+      h3 New Workspace
+      form.create-form
+        input.closes(type="submit" value="cancel")   
+        input.ok(type="submit" value="create")
+        .single-in 
+          input.input(type="text" id="name" required)
+          label(for="name") title 
+        .single-in 
+          label.select type 
+            option(value="1") puplic 
+            option(value="2") privet 
+
+            
+
+

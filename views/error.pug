@@ -1,0 +1,14 @@
+extends base
+
+block content
+  .error-page
+    .img-error 
+      img.svgError(src="/img/error.svg", alt="")
+    img.blob-error(src="/img/blob.svg", alt="")
+    .error-text 
+      h1 404
+      h3 Oops! page not found
+      p the page you are looking for dose not exist try again , or Go back Home 
+      a(href='/')
+        button Home
+

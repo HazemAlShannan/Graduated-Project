@@ -1,0 +1,17 @@
+[
+  {
+    "_id": "20576d5afc13ae01fe0008d0",
+    "wsName": "My Workspace",
+    "wsOwner": "10576d5afc13ae01fe0007d0",
+    "background": "back-ground-2.jpg",
+    "wsDescreption": "bla bla for workspace",
+    "type": "public",
+    "wsMembers": [
+      {
+        "_id": "50576d5afc13ae01fe0007d0",
+        "memberId": "10576d5afc13ae01fe0007d0",
+        "role": "admin"
+      }
+    ]
+  }
+]

@@ -1,0 +1,5 @@
+email : projectdb2022@gmail.com
+password : test@1234
+atlas account password : test@1234
+atlas admin username : projectdb
+mongodb admin password : asdf1234

@@ -1,0 +1,83 @@
+[
+  {
+    "_id": "30576d5afc13ae01fe0007d0",
+    "bName": "Todos",
+    "bOwner": "10576d5afc13ae01fe0007d0",
+    "photo": "",
+    "bDuration": 100,
+    "bMembers": [
+      "10576d5afc13ae01fe0007d0",
+      "10576d5afc13ae01fe0008d0",
+      "10576d5afc13ae01fd0007d1"
+    ],
+    "bDescription": "bla bla for todos",
+    "workspace": "20576d5afc13ae01fe0008d0",
+    "static": true
+  },
+  {
+    "_id": "30576d5afc13ae01fe0007d1",
+    "bName": "Agile",
+    "bOwner": "10576d5afc13ae01fe0008d0",
+    "photo": "",
+    "bDuration": 90,
+    "bMembers": ["10576d5afc13ae01fe0008d0", "10576d5afc13ae01fd0007d1"],
+    "bDescription": "bla bla for agile",
+    "workspace": "20576d5afc13ae01fe0008d0",
+    "static": true
+  },
+  {
+    "_id": "30576d5afc13ae01fe0007d3",
+    "bName": "Agile 2",
+    "bOwner": "10576d5afc13ae01fe0008d0",
+    "photo": "",
+    "bDuration": 90,
+    "bMembers": ["10576d5afc13ae01fe0008d0", "10576d5afc13ae01fd0007d1"],
+    "bDescription": "bla bla for agile",
+    "workspace": "20576d5afc13ae01fe0008d0",
+    "static": true
+  },
+  {
+    "_id": "30576d5afc13ae01fe0007d4",
+    "bName": "Agile 3",
+    "bOwner": "10576d5afc13ae01fe0008d0",
+    "photo": "",
+    "bDuration": 90,
+    "bMembers": ["10576d5afc13ae01fe0008d0", "10576d5afc13ae01fd0007d1"],
+    "bDescription": "bla bla for agile",
+    "workspace": "20576d5afc13ae01fe0008d0",
+    "static": true
+  },
+  {
+    "_id": "30576d5afc13ae01fe0007d5",
+    "bName": "Agile 4",
+    "bOwner": "10576d5afc13ae01fe0008d0",
+    "photo": "",
+    "bDuration": 90,
+    "bMembers": ["10576d5afc13ae01fe0008d0", "10576d5afc13ae01fd0007d1"],
+    "bDescription": "bla bla for agile",
+    "workspace": "20576d5afc13ae01fe0008d0",
+    "static": true
+  },
+  {
+    "_id": "30576d5afc13ae01fe0007d2",
+    "bName": "Test Board",
+    "bOwner": "10576d5afc13ae01fe0008d0",
+    "photo": "",
+    "bDuration": 60,
+    "bMembers": ["10576d5afc13ae01fe0008d0"],
+    "bDescription": "bla bla for test",
+    "workspace": "20576d5afc13ae01fe0008d1",
+    "static": true
+  },
+  {
+    "_id": "30576d5afc13ae01fe0007d6",
+    "bName": "Test Board 2",
+    "bOwner": "10576d5afc13ae01fe0008d0",
+    "photo": "",
+    "bDuration": 60,
+    "bMembers": ["10576d5afc13ae01fe0008d0"],
+    "bDescription": "bla bla for test",
+    "workspace": "20576d5afc13ae01fe0008d2",
+    "static": true
+  }
+]

@@ -1,0 +1,66 @@
+extends base
+
+block content
+  .container
+    .forms-container
+      .signin-signup
+        form.sign-in-form
+          .title Sign in
+          .input-field
+            i.bx.bxs-user 
+            input#email(type="email" placeholder="E-mail" name="email")
+          .input-field
+            i.bx.bxs-lock-alt 
+            input#password(type="password" placeholder="Password" name="password")
+          input.btn.solid(type="submit" name="login" value="Login")
+          span.error error 
+          p.socila-text Or sign in with social platform
+          .social-media
+            a.social-icon(href="#")
+              i.bx.bxl-facebook
+            a.social-icon(href="#")
+              i.bx.bxl-twitter
+            a.social-icon(href="#")
+              i.bx.bxl-google
+            a.social-icon(href="#")
+              i.bx.bxl-linkedin
+
+        form.sign-up-form(action="")
+          .title Sign up
+          .input-field
+            i.bx.bxs-user 
+            input#name(type="text" placeholder="Username" name="name")
+          .input-field
+            i.bx.bxs-envelope 
+            input#emailup(type="email" placeholder="Email" name="email")
+          .input-field
+            i.bx.bxs-lock-alt 
+            input#passwordup(type="password" placeholder="Password" name="password")
+          .input-field 
+            i.bx.bxs-lock-alt 
+            input#confirm(type="password", placeholder="Password Confirm", name="passwordConfirm")
+          input.btn.solid(type="submit" name="Sign up" value="Login")
+          span.error error 
+          p.socila-text Or sign Up with social platform
+          .social-media
+            a.social-icon(href="#")
+              i.bx.bxl-facebook
+            a.social-icon(href="#")
+              i.bx.bxl-twitter
+            a.social-icon(href="#")
+              i.bx.bxl-google
+            a.social-icon(href="#")
+              i.bx.bxl-linkedin
+    .panels-container
+      .panel.panel-left
+        .content
+          h3 New here??
+          p Lorem ipsum dolor cumque veritatis veroreiciendis ad optio.
+          button.btn.transparent#sign-up-btn Sign up
+        img.image(src="/front/svg/undraw_work_chat_re_qes4.svg", alt="")
+      .panel.panel-right
+        .content
+          h3 one of us 
+          p Lorem ipsum dolor cumque veritatis veroreiciendis ad optio.
+          button.btn.transparent#sign-in-btn Sign in
+        img.image(src="/front/svg/undraw_online_payments_re_y8f2.svg", alt="")

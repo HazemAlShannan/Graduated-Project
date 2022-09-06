@@ -1,0 +1,237 @@
+extends base
+
+block content
+  header 
+    .user-header
+      a(href='/profile')
+        i.bx.bx-user
+      h3.user-name-header= `${user.name}`
+    ul 
+      li 
+        a(href='canvas')
+          i.bx.bx-clipboard
+      li 
+      li 
+        a.add.user.cardMem
+          i.bx.bx-user.uh2
+            span= `${arr[0].size}`
+      li 
+      li.boardlist
+        a.title-ul Board:
+          ul.board 
+            each b in board.workspace.boards
+              li
+                a= `${b.bName}`
+
+        h4.title-w= `${board.bName}`
+      li.cardHome
+        a(href="/") Home
+      li 
+
+  .footer 
+    .copy-div 
+      p.copyright Copyright &copy; 2022
+    .social-footer
+      ul.social-icons
+        li 
+          a
+            i.bx.bxl-facebook 
+        li 
+          a
+            i.bx.bxl-google 
+        li 
+          a
+            i.bx.bxl-linkedin
+  .mainnn
+    .create-icon-card
+      -let val=board.workspace.wsMembers.map((member)=>{if(member.memberId.toString() === user.id &&(member.role === 'admin' || member.role === 'owner')){return true;}})
+      -if (val.includes(true))
+        i.bx.bx-plus-circle.bx-spin
+        i.bx.bx-plus-circle
+    .board-list
+      -let i=0
+      -let i2=0
+      -let c=0
+      -let bigC=0
+      -let z=0
+      -let t=0
+      each card in board.cards
+        .larg
+          .wrappeer.fiveC
+            .see(data-count= `${c}`)
+              i.bx.bx-show.bx-flip-horizontal
+              i.bx.bx-message-alt-x
+            h2= `${card.cardName}`
+            .task-input
+              i.bx.bx-plus.create-task(data-cardid= `${card._id}` , data-count= `${c}`)
+              input.add-task-in(type="text", placeholder="Add a new task" , data-count= `${c}`)
+              span.pin
+              span.pin2
+            ul.task-box 
+              if(card.tasks)
+                each task in card.tasks
+                  li.task 
+                    label(for=`${i++}`)
+                      if(task.done)
+                        input.checkbox(type="checkbox", checked, id= `${i - 1}`, data-cardid= `${card._id}`)
+                      if(!task.done)
+                        input.checkbox(type="checkbox", id= `${i - 1}`, data-cardid= `${card._id}`)
+                      p.taskname(id= `${i - 1}`)= `${task.name}`
+                    .settings 
+                      i.bx.bx-dots-horizontal-rounded
+                      ul.task-menu 
+                        li Edit
+                          i.bx.bxs-edit-alt
+                        li Delete
+                          i.bx.bxs-trash-alt
+                -++c
+            
+            .controls 
+              ul.task-tag
+                li.task-img 
+                  each member in card.membersTag
+                    .img-tag
+                      img(src= `/img/${member.photo}`, alt="")
+                li.task-img
+                  .img-tag.index-tag
+                    i.bx.bx-dots-horizontal-rounded(data-index= `${z++}`)
+                button.clear-btn
+                  -let val=board.workspace.wsMembers.map((member)=>{if(member.memberId.toString() === user.id &&(member.role === 'admin' || member.role === 'owner')){return true;}})
+                  -if (val.includes(true))
+                    i.bx.bxs-trash-alt.delete-card(data-cardid= `${card._id}`)
+                .tag-btn(data-cardid= `${card._id}`)
+                  //- -let val=board.workspace.wsMembers.map((member)=>{if(member.memberId.toString() === user.id &&(member.role === 'admin' || member.role === 'owner')){return true;}})
+                  -if (val.includes(true))
+                    i.bx.bx-user-plus
+        
+          //- each card in board.cards
+          .backtask(data-bigc= `${bigC}`)
+            .content-task
+              h2= `${card.cardName}`
+              .task-input
+                i.bx.bx-plus.create-task-big(data-cardid= `${card._id}`,data-num= `${bigC}`)
+                input.task-data-big(type="text", placeholder="Add new task",data-num= `${bigC}`)
+                -++bigC
+              ul.task-box-back
+                each task in card.tasks
+                  li.task 
+                    label(for= `${i2++}`)
+                      if(task.done)
+                        input.checkbox-big(type="checkbox",checked, id= `${i2 - 1}`, data-cardid= `${card._id}`)
+                        p.taskname-big(id= `${i2 -1}`)= `${task.name}`
+                      if(!task.done)
+                        input.checkbox-big(type="checkbox", id= `${i2 - 1}`, data-cardid= `${card._id}`)
+                        p.taskname-big(id= `${i2 -1}`)= `${task.name}`
+                      .settings 
+                        i.bx.bx-dots-horizontal-rounded
+                        ul.task-menu 
+                          li Edit
+                            i.bx.bxs-edit-alt
+                          li Delete
+                            i.bx.bxs-trash-alt
+            .toggle-btn
+              
+
+
+
+
+  .create-todoListBox 
+    i.bx.bx-x-circle.bx-tada
+    i.bx.bx-plus-medical.create-card
+    input#cardname(type="text", placeholder="Enter the titleList")
+  .notification-box 
+    .notification 
+      i.bx.bxs-bell
+      span.num-notification= `${user.tagsOnCards.length}`
+      ul 
+        each tag in user.tagsOnCards
+          li
+            span.img-noti 
+              img(src=`/img/${tag.cardOwner.photo}`)
+            span.text-noti= `${tag.cardOwner.name} tags you on ${tag.cardName}`
+  each card in board.cards
+    .tags(data-cardid= `${card._id}`)
+      .closeTag
+        i.bx.bxs-x-circle
+      h1 Tag member to this card
+      form.tag-note(data-cardid= `${card._id}`)
+        input.inputTags(type="email" , name="text" , required, placeholder= 'email@example.com', data-cardid= `${card._id}`)
+        button.tag-user(type="submit",data-cardid= `${card._id}`)
+          i.bx.bx-plus(aria-hidden="true")
+      .contain-tag 
+        ul.ulTags
+  each card in board.cards
+    .memTags-Todolis(data-tagnumber= `${t++}`)
+      .closememTags
+        i.bx.bxs-x-circle
+      span members 
+      ul 
+        each member in card.membersTag
+          li 
+            img(src=`/img/${member.photo}`)
+            small= `${member.name}`
+  //- .create-todoListBox 
+  //-   i.bx.bx-x-circle.bx-tada
+  //-   i.bx.bx-plus-medical.create-card
+  //-   input#cardname(type="text", placeholder="Enter the titleList")
+  //- .notification-box.CA
+  //-   .notification 
+  //-     i.bx.bxs-bell
+  //-     span.num-notification 7
+  //-     ul 
+  //-       li
+  //-         span.img-noti 
+  //-           img(src="/img/user-17.jpg", alt="")
+  //-         span.text-noti rokia al invite you to mu workspace
+      
+  //-       li
+  //-         span.img-noti 
+  //-           img(src="/img/user-17.jpg", alt="")
+  //-         span.text-noti hazem al invite you to mu worksuhjhjpace
+      
+  //-       li
+  //-         span.img-noti 
+  //-           img(src="/img/user-17.jpg", alt="")
+  //-         span.text-noti mariam al invite you to mu erfjgkjlklnj
+  //- .tags
+  //-   .closeTag
+  //-     i.bx.bxs-x-circle
+  //-   h1 Adding and removing to the card
+  //-   form.tag-note
+  //-     input.inputTags(type="text" , name="text" , required)
+  //-     button.tag-user(type="submit")
+  //-       i.bx.bx-plus(aria-hidden="true")
+  //-   .contain-tag 
+  //-     ul.ulTags
+  //- .memTags-Todolis
+  //-   .closememTags
+  //-     i.bx.bxs-x-circle
+  //-   span  members 
+  //-   ul 
+  //-     li 
+  //-       img(src="/img/user-9.jpg", alt="")
+  //-       small  roro dofdsf
+  .world 
+    i.bx.bx-world
+    span.numW= `${user.invitedWorkspaces.length}`
+    .dropdown-world
+      ul 
+        each invite in user.invitedWorkspaces
+          li
+            .notify-item 
+              .notify-img 
+                img(src= `/img/${invite.wsOwner.photo}`)
+              .notify-info 
+                p= `${invite.wsOwner.name} invite you to`
+                  span= `${invite.wsName} workspace` 
+              .notify-btn 
+                button.accept Accept 
+                button.not No 
+
+  .alert.hide_Error
+    span
+      i.bx.bxs-error-circle
+    span.msg-error Waening: you have wrong !
+    span.close-error 
+      span 
+        i.bx.bx-x

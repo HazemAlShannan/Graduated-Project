@@ -1,0 +1,76 @@
+extends base
+
+block content
+  header 
+    .user-header
+      a(href='/profile')
+        i.bx.bx-user
+      h3.user-name-header= `${user.name}`
+    ul 
+      li 
+        a(href='/').Home-invet Home
+  .footer 
+    .copy-div 
+      p.copyright Copyright &copy; 2022
+    .social-footer
+      ul.social-icons
+        li 
+          a
+            i.bx.bxl-facebook 
+        li 
+          a
+            i.bx.bxl-google 
+        li 
+          a
+            i.bx.bxl-linkedin
+  .invet-container 
+    .invet-mg 
+      img(src="/img/inv.svg", alt="")
+    each workspace in workspaces
+      .invet-box
+        .card-header
+          span= `${workspace.type}` 
+        .card-profile 
+          .name-invet 
+            h4= `${workspace.wsOwner.name}`
+            small= `${workspace.wsOwner.email}`
+        .card-body 
+          h3= `${workspace.wsName}`
+          small= `${workspace.wsDescreption}`
+        .invet-btn(data-invited= `${workspace._id}`)
+          i.bx.bx-right-arrow-alt
+  .notification-box 
+    .notification 
+      i.bx.bxs-bell
+      span.num-notification= `${user.tagsOnCards.length}`
+      ul
+        each tag in user.tagsOnCards
+          li
+            span.img-noti 
+              img(src= `/img/${tag.cardOwner.photo}`)
+            span.text-noti= `${tag.cardOwner.name} tags u on ${tag.cardName}`
+      
+  .world 
+    i.bx.bx-world
+    span.numW= `${user.invitedWorkspaces.length}`
+    .dropdown-world
+      ul 
+        each invite in user.invitedWorkspaces
+          li
+            .notify-item 
+              .notify-img 
+                img(src= `/img/${invite.wsOwner.photo}`)
+              .notify-info 
+                p= `${invite.wsOwner.name} invite you to `
+                  span= `${invite.wsName}`
+              .notify-btn 
+                button.accept(data-inviteid= `${invite._id}`) Accept 
+                button.not(data-inviteid= `${invite._id}`) decline 
+    
+  .alert.hide_Error
+    span
+      i.bx.bxs-error-circle
+    span.msg-error Waening: you have wrong !
+    span.close-error 
+      span 
+        i.bx.bx-x

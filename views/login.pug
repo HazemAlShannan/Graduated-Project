@@ -1,0 +1,79 @@
+extends base
+
+block content
+  .container
+    .forms-container
+      .signin-signup
+        form.sign-in-form
+          h2.title Sign in
+          .input-field
+            i.bx.bxs-user 
+            input#email(type="email", placeholder="E-mail", name="email")
+          .input-field
+            i.bx.bxs-lock-alt 
+            input#password(type="password",  placeholder="Password", name="password")
+          input.btn.solid(type="submit", name="login", value="Login")
+          span.error error 
+          p.socila-text Or sign in with social platform
+          .social-media
+            a.social-icon
+              i.bx.bxl-facebook
+            a.social-icon
+              i.bx.bxl-twitter
+            a.social-icon
+              i.bx.bxl-google
+            a.social-icon
+              i.bx.bxl-linkedin
+        form.sign-up-form
+          h2.title Sign Up
+          .input-field
+            i.bx.bxs-user 
+            input#name(type="text", placeholder="Username", name="name")
+          .input-field
+            i.bx.bxs-envelope 
+            input#emailup(type="email", placeholder="Email", name="email")
+          .input-field
+            i.bx.bxs-lock-alt 
+            input#passwordup(type="password", placeholder="Password", name="password")
+          .input-field 
+            i.bx.bxs-lock-alt 
+            input#confirm(type="password", placeholder="Password Confirm", name="passwordConfirm")
+          .input-field.gender
+            .gender-details
+              input#dot-1(type="radio",  name="gender" value='male')
+              input#dot-2(type="radio",  name="gender" value='female')
+              span.gender-title Gender:
+              .categroy
+                label(for="dot-1") 
+                  span.dot.one
+                  span.gender Male
+                label(for="dot-2") 
+                  span.dot.two
+                  span.gender Female
+          input.btn.solid(type="submit", name="Sign up", value="Signup")
+          span.error
+          p.socila-text Or sign Up with social platform
+          .social-media
+            a.social-icon
+              i.bx.bxl-facebook
+            a.social-icon
+              i.bx.bxl-twitter
+            a.social-icon
+              i.bx.bxl-google
+            a.social-icon
+              i.bx.bxl-linkedin
+    .panels-container
+      .panel.panel-left
+        .content
+          h3 New here??
+          p Lorem ipsum dolor cumque veritatis veroreiciendis ad optio.
+          button.btn.transparent#sign-up-btn Sign up
+          button.btn.transparent#AboutUs About us
+        img.image(src="/img/undraw_sharing_articles_re_jnkp.svg", alt="")
+      .panel.panel-right
+        .content
+          h3 one of us 
+          p Lorem ipsum dolor cumque veritatis veroreiciendis ad optio
+          button.btn.transparent#sign-in-btn log in
+          button.btn.transparent#AboutUs About us
+        img.image(src="/img/o.svg", alt="")

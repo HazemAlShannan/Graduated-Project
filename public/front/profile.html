@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>profile</title>
+  <link rel="stylesheet" href="./css/normalize.css">
+  <link rel="stylesheet" href="./css/profile.css">
+  <link rel="stylesheet" href="./css/boxicons.css">
+  <link rel="stylesheet" href="./css/boxicons.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500;700;800&family=Work+Sans:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- start navbar -->
+  <div class="navigation">
+    <div class="profile">
+      <div class="img-nav">
+        <img src="./svg/IMG-20220402-WA0021.jpg" alt="">
+      </div>
+    </div>
+    <ul class="menu">
+      <li class="tooltip-element" data-tooltip="0">
+        <a href="#">
+          <span class="icon">
+            <i class='bx bx-home-alt-2'></i>
+          </span>
+        </a>
+      </li>
+      <li class="tooltip-element" data-tooltip="1">
+        <a href="#">
+          <span class="icon">
+            <i class='bx bx-id-card'></i>
+          </span>
+        </a>
+      </li>
+      <li class="tooltip-element" data-tooltip="2">
+        <a href="#">
+          <span class="icon">
+            <i class='bx bx-notepad'></i>
+          </span>
+        </a>
+      </li>
+      <li class="tooltip-element" data-tooltip="3">
+        <a href="#">
+          <span class="icon">
+            <i class='bx bx-user'></i>
+          </span>
+        </a>
+      </li>
+      <li class="tooltip-element" data-tooltip="4">
+        <a href="#">
+          <span class="icon logoutt">
+            <i class='bx bx-log-out'></i>
+          </span>
+        </a>
+      </li>
+      <div class="tooltip">
+        <span class="show">Home</span>
+        <span>My Cards</span>
+        <span>My boards</span>
+        <span>Profile</span>
+        <span>Logout</span>
+      </div>
+    </ul>
+  </div>
+
+  <!-- end navbar -->
+
+  <!-- <button class="btn" type="button">create</button> -->
+
+
+
+  <!-- start header -->
+<header>
+      <ul>
+        <li>
+          <a href="#">About</a>
+        </li>
+        <li class="work">
+          <i class='bx bxs-chevron-down'></i>
+          <a href="#">Workspace</a>
+            <ul class="workspace">
+              <li>
+                <a href="#">my Workspace</a>
+              </li>
+              <li>
+                <a class="btn" type="button">create</a>
+              </li>
+            </ul>
+        </li>
+        <li>
+          <a href="#" class="add">
+            <i class='bx bx-user-plus'></i>
+          </a>
+        </li>
+      <!-- <li>
+        <button class="btn" type="button">create</button>
+      </li> -->
+      </ul>
+    </header>
+  <!-- end header -->
+
+  <!-- start footer -->
+<div class="footer">
+
+  <div class="copy-div">
+    <p class="copyright">Copyright &copy; 2022</p>
+  </div>
+  <div class="social-footer">
+    <ul class="social-icons">
+      <li>
+        <a href="#">
+          <i class='bx bxl-facebook'></i>
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <i class='bx bxl-google' ></i>
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <i class='bx bxl-linkedin'></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+
+<!-- end footer -->
+
+  
+
+
+  <!-- start mainn -->
+
+<main>
+  <div class="containerr">
+    <!-- <div class="title"></div> -->
+    <div class="profile-pic-div">
+      <img src="./svg/undraw_profile_pic_ic-5-t (1).svg" id="photo">
+      <input type="file" id="file">
+      <label for="file" id="uploadBtn">choose pic</label>
+    </div>
+    <form class="profile-form" action="#">
+      <div class="user-details">
+        <div class="input-box">
+          <span class="details">Full Name</span>
+          <input type="text" placeholder="User Full Name" required>
+        </div>
+        <div class="input-box">
+          <span class="details">User Name</span>
+          <input type="text" placeholder="User Name" required>
+        </div>
+        <div class="input-box">
+          <span class="details">Email</span>
+          <input type="email" placeholder="User Email" required>
+        </div>
+        <div class="input-box">
+          <span class="details">posation</span>
+          <input type="text" placeholder="User posation" required>
+        </div>
+        <div class="input-box">
+          <span class="details">password</span>
+          <input type="password" placeholder="password" required>
+        </div>
+        <div class="input-box">
+          <span class="details">confirm password</span>
+          <input type="password" placeholder="password" required>
+        </div>
+      </div>
+      <div class="gender-details">
+        <input type="radio" name="gender" id="dot-1">
+        <input type="radio" name="gender" id="dot-2">
+        <span class="gender-title">Gender</span>
+        <div class="categroy">
+          <label for="dot-1">
+            <span class="dot one"></span>
+            <span class="gender">Male</span>
+          </label>
+          <label for="dot-2">
+            <span class="dot two"></span>
+            <span class="gender">Female</span>
+          </label>
+        </div>
+      </div>
+      <div class="button">
+        <input type="submit" value="update">
+      </div>
+    </form>
+  </div>
+</main>
+
+  <!-- end main -->
+
+
+  <!-- start creat btnn -->
+
+
+  <div class="create-model">
+    <div class="modal">
+      <h3>New Workspace</h3>
+      <form class="create-form">
+        <input class="closes" type="submit" value="cancel">
+        <input class="ok" type="submit" value="create">
+        <div class="single-in">
+          <input type="text" class="input" id="name" required>
+          <label for="name">Title</label>
+        </div>
+
+        <div class="single-in">
+          <label class="select">type
+            <select name="type" id="">
+              <option value="1">puplic</option>
+              <option value="2">privet</option>
+            </select>
+          </label>
+        </div>
+        </div>
+      </form>
+  </div> 
+
+
+  
+  <!-- end create btnn -->
+
+
+
+  <script src="main.js"></script>
+</body>
+</html> 

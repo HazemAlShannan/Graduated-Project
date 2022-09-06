@@ -1,0 +1,138 @@
+extends base
+
+block content
+  header 
+    .user-header
+      a(href='/profile')
+        i.bx.bx-user
+      h3.user-name-header= `${user.name}`
+    ul 
+      li 
+        a.home(href='/') Home
+  .footer 
+    .copy-div 
+      p.copyright Copyright &copy; 2022
+    .social-footer
+      ul.social-icons
+        li 
+          a(href="#")
+            i.bx.bxl-facebook 
+        li 
+          a(href="#")
+            i.bx.bxl-google 
+        li 
+          a(href="#")
+            i.bx.bxl-linkedin
+  .mainn.profileMain
+    .containerr
+      .left-side 
+        img(src="/img/undraw_collaboration_re_vyau.svg", alt="")
+        .siad-cont
+          .us-name
+            i.bx.bxs-user 
+            span=  `${user.name}` 
+            br
+            i.bx.bxs-envelope 
+            span= `${user.email}`
+            br
+            i.bx.bx-credit-card-front= `${workspaces.length}`
+            br
+            i.bx.bx-credit-card-front= `${workspaces.length}`
+            br
+            i.bx.bx-male-female
+            span= `${user.gender}`
+      form.profile-form
+        .profile-pic-div
+          img(src=`/img/${user.photo}`, alt="")
+          input(type= 'file',accept= 'image/*',id = 'photo', name= 'photo')
+          label.upload(for="photo") choose photo
+        .user-details
+          .input-box
+            label.details Full Name
+            input#profileName(type="text", placeholder="User Full Name")
+          .input-box
+            label.details Email
+            input#profileEmail(type="email", placeholder="User Email")
+          .input-box
+            label.details posation
+            input#profilePosation(type="text", placeholder="User posation")
+          .input-box
+            label.details password
+            input#profilePassword(type="password", placeholder="User password")
+          .input-box
+            label.details confirm password
+            input#profilePasswordConfirm(type="password", placeholder="User password")
+        //- .gender-details
+        //-   input#dot-1(type="radio",  name="gender")
+        //-   input#dot-2(type="radio",  name="gender")
+        //-   span.gender-title Gender
+        //-   .categroy
+        //-     label(for="dot-1") 
+        //-       span.dot.one
+        //-       span.gender Male
+        //-     label(for="dot-2") 
+        //-       span.dot.two
+        //-       span.gender Female
+        .button
+          input(type="submit", value="update")
+  .notification-box 
+    .notification 
+      i.bx.bxs-bell
+      span.num-notification= `${user.tagsOnCards.length}`
+      ul 
+        li
+          span.img-noti 
+            img(src="/img/user-17.jpg", alt="")
+          span.text-noti rokia al invite you to mu workspace
+      
+        li
+          span.img-noti 
+            img(src="/img/user-17.jpg", alt="")
+          span.text-noti hazem al invite you to mu worksuhjhjpace
+      
+        li
+          span.img-noti 
+            img(src="/img/user-17.jpg", alt="")
+          span.text-noti mariam al invite you to mu erfjgkjlklnj
+      
+  .world 
+    i.bx.bx-world
+    .dropdown-world
+      ul 
+        li
+          .notify-item 
+            .notify-img 
+              img(src="/img/user-4.jpg", alt="")
+            .notify-info 
+              p rokia invite you to 
+                span workspace roro 
+            .notify-btn 
+              button.accept Accept 
+              button.not No 
+        li
+          .notify-item 
+            .notify-img 
+              img(src="/img/user-4.jpg", alt="")
+            .notify-info 
+              p rokia invite you to 
+                span workspace roro 
+            .notify-btn 
+              button.accept Accept 
+              button.not No 
+        li
+          .notify-item 
+            .notify-img 
+              img(src="/img/user-4.jpg", alt="")
+            .notify-info 
+              p rokia invite you to 
+                span workspace roro 
+            .notify-btn 
+              button.accept Accept 
+              button.not No 
+  .alert.hide_Error
+    span
+      i.bx.bxs-error-circle
+    span.msg-error Waening: you have wrong !
+    span.close-error 
+      span 
+        i.bx.bx-x

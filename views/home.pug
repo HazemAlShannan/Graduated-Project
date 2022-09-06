@@ -1,0 +1,314 @@
+extends base
+
+block content
+  -let i=0
+  .navigation
+    .profile
+      .img-nav
+        img(src=`/img/${user.photo}`, alt="user photo")
+    ul.menu
+      li.tooltip-element(data-tooltip="0")
+        a(href="/")
+          span.icon 
+            i.bx.bx-home-alt-2
+      li.tooltip-element(data-tooltip="1")
+        a(href="/invitedWS")
+          span.icon 
+            i.bx.bx-id-card
+      li.tooltip-element(data-tooltip="2")
+        a(href='/publicWorkspaces')
+          span.icon 
+            i.bx.bx-notepad
+      li.tooltip-element(data-tooltip="3")
+        a
+          span.icon.logoutt
+            i.bx.bx-log-out
+      .tooltip 
+        span.show Home
+        span Invited workspaces
+        span public workspaces
+        span Logout
+  header 
+    .user-header
+      a(href='/profile')
+        i.bx.bx-user
+      h3.user-name-header= `${user.name}`
+    ul 
+      li 
+        a.about(href='/About') About
+      li.work 
+        a.title-ul Workspace:
+          ul.workspace
+            each workspace in workspaces
+              li 
+                a(href=`/${workspace.slug}`)= `${workspace.wsName}`
+                  span.i-rest
+                  -if(workspace.slug === 'my-workspace')
+                    i.bx.bx-reset#reset-ws(data-wsid= `${workspace._id}`)
+                  -if(workspace.slug !== 'my-workspace')
+                    i.bx.bx-trash-alt.delete-ws(data-wsid= `${workspace._id}`)
+                hr
+            li.li-create
+              i.bx.bx-plus
+              a.btnn create new
+        h4.title-w= `${boards.wsName}`
+          i.bx.bxs-edit-alt
+      li 
+        a.add.user
+          i.bx.bx-user
+          span= `${boards.wsMembers.length}`
+      li 
+        a.add.plus-i
+          i.bx.bx-plus
+    .plus-box
+      .inpu#input(data-id= `${boards._id}`)
+        i.bx.bx-envelope
+        input.in-plus#add-email(type="email", placeholder="User E-mail")
+      button.cancelPlus cancel 
+      button.add-u +
+    .name-mem
+      .mem-model
+        .content-mem
+          h1.title-mem The User
+          each member in boards.wsMembers
+            -if(member.memberId.id !== user.id)
+              h2.mem-user= `${member.memberId.name}`
+                -if(member.role === 'user')
+                  i.bx.bxs-user-check.user-current-role(data-role= 'user', data-userid= `${member.memberId.id}`)
+                -if(member.role === 'admin')
+                  i.bx.bxs-check-shield.user-current-role(data-role= 'admin', data-userid= `${member.memberId.id}`)
+                i.bx.bx-dots-horizontal-rounded(data-userid= `${member.memberId.id}`)
+                ul.updatemem.update-role-members#update-member-role(data-userid= `${member.memberId.id}`)
+                  li.change-role(data-role= 'admin', data-userid= `${member.memberId.id}`, data-wsid= `${boards.id}`) Admin
+                    i.bx.bx-check-shield
+                  li.change-role(data-role= 'user', data-userid= `${member.memberId.id}`, data-wsid= `${boards.id}`) User
+                    i.bx.bxs-user-check    
+                  li.change-role(data-role= 'delete',data-userid= `${member.memberId.id}`, data-wsid= `${boards.id}`) Delete 
+                    i.bx.bx-trash.delete-member      
+              .mem-img
+                a
+                  img.show-card(src=`/img/${member.memberId.photo}`, alt="", data-backId= `${member.memberId.id}`)
+          .memBtn
+            button.close-mem cancel
+            button(type="submit").update-mem Update
+    .footer 
+      .copy-div 
+        p.copyright Copyright &copy; 2022
+      .social-footer
+        ul.social-icons
+          li 
+            a
+              i.bx.bxl-facebook 
+          li 
+            a
+              i.bx.bxl-google 
+          li 
+            a
+              i.bx.bxl-linkedin
+  .mainn 
+    .main-svg 
+      img.blob(src="/img/blob.svg", alt="")
+      img.blob2(src="/img/note.svg", alt="")
+    .card-div
+      -if(boards.slug ==='my-workspace')
+        each board in boards.boards
+          -if(board.static)
+            .card 
+              .card-image
+                img(src= `/img/${user.photo}`, alt="")
+                .card-trash.delete-card-btn(data-boardid= `${board.id}`)
+                  i.bx.bx-trash-alt
+                  i.bx.bx-trash-alt.bx-tada
+              .card-text
+                h2.data= `${board.bName}`
+                i.bx.bx-edit-alt(data-editboardid= `${board.id}`)
+                h3 About 
+                p= `${board.bDescription}`
+              .date 
+                p= `from ${board.bStartDate.toString().split(' ').slice(0, 4).join('-')}`
+                p= `to ${(board.bEndDate === undefined || board.bEndDate === null) ? 'a non Specified Date' : board.bEndDate.toString().split(' ').slice(0, 4).join('-')}`
+              .card-stats
+                .stat 
+                  .icon-card.svg-icon
+                    img.svgg(src="../img/h.svg", alt="")
+                    img.svgg.none(src="../img/m.svg", alt="")
+                .stat.border
+                  .icon-card
+                    i.bx.bx-group= `${arr[i].size}`
+                      -++i
+                .stat.open-board(data-boardName= `${boards.id}/${board.id}`)
+                  .value Visit 
+                  .icon-card 
+                    i.bx.bx-log-in-circle
+    h3 
+    h3
+    h1.new-board
+    .hrB
+      hr
+      -if(boards.boards.length > boards.boards.filter((board) => board.static === true).length)
+        h3 created boards
+      .new.card-div
+        each board in boards.boards
+          -if(!board.static)
+            .card 
+              .card-image
+                img(src= `/img/${user.photo}`, alt="")
+                .card-trash.delete-card-btn(data-boardid= `${board.id}`)
+                  i.bx.bx-trash-alt
+                  i.bx.bx-trash-alt.bx-tada
+              .card-text
+                h2.data= `${board.bName}`
+                i.bx.bx-edit-alt
+                h3 About 
+                p= `${board.bDescription}`
+              .date 
+                p=  `from ${board.bStartDate.toString().split(' ').slice(0, 4).join('-')}`
+                p=  `to ${(board.bEndDate === undefined || board.bEndDate === null) ? 'a non Specified Date' : board.bEndDate.toString().split(' ').slice(0, 4).join('-')}`
+              .card-stats
+                .stat 
+                  .icon-card.svg-icon
+                    img.svgg(src="../img/h.svg", alt="")
+                    img.svgg.none(src="../img/m.svg", alt="")
+                .stat.border
+                  .icon-card
+                    i.bx.bx-group= `${arr[i].size}`
+                      -++i
+                .stat.open-board(data-boardName= `${boards.id}/${board.id}`)
+                  .value Visit 
+                  .icon-card 
+                    i.bx.bx-log-in-circle
+    .create-icon
+      button.plus 
+        i.bx.bx-plus-medical.bx-tada
+  .create-B
+    .create-board-box
+      form.create-new-board
+        h3 create Board
+        img.board-img(src= `/img/${user.photo}`, alt="")
+        .input-group
+          label Board name
+          input#bName(type="text" , placeholder="Enter Board name")
+        .input-group
+          label End Date
+          input#bDate(type="date")
+        .input-group
+          label Description for your Board
+          input#bDesc(type="text")
+        .bo 
+          input.create-board.R(type="submit", name="newBoard", value="Create") 
+          .cancel-board Cancel
+  each board in boards.boards
+    .edittB(data-idforboard= `${board.id}`)
+      .editboard-box
+        form.edit-board.update-board-form(data-bid= `${board.id}`)
+          h3 edit Board
+          img.board-img(src= `/img/${user.photo}`, alt="")
+          .input-group
+            label Board name
+            input.bNameupdate(type="text" , value= `${board.bName}`)
+          .input-group
+            label End Date
+            input.bDateupdate(type="date")
+          .input-group
+            label Description for your Board
+            input.bDescupdate(type="text", value= `${board.bDescription}`)
+          .edit 
+            input.edit-board(type="submit", name="editboard", value="edit") 
+            .cancel-edit Cancel
+  .create-model
+    .modal 
+      h3 New Workspace
+      form.create-form
+        .single-in
+          input.input#ws-name(type="text")
+          label.title(for="ws-name") Title
+        .single-in
+          input.input#ws-des(type="text")
+          label.title(for="ws-des") Description
+        .single-in
+            h4 Type:
+            input.rd#public(type="radio", name="type")
+            label.rdd(for="public") public
+            input.rd#private(type="radio", name="type")
+            label.rdd(for="private") private
+        input.closes(value="cancel")
+        input.ok(type="submit", value="create")
+  .Update-model
+    .modal-Update
+      h3 Update Workspace
+      form.update-form.update-ws-form(data-wsid= `${boards.id}`)
+        .single-in
+          input.input#wsup-name(type="text", value= `${boards.wsName}`)
+          label.title(for="wsup-name") Workspace Name
+        .single-in
+          input.input#wsup-des(type="text", value= `${boards.wsDescreption}`)
+          label.title(for="wsup-des") Description
+        .single-in
+            h4 Type:
+            -if(boards.type === 'public')
+              input.rd#updatepublic(type="radio", name="type", checked)
+              label.rdd(for="updatepublic") public
+              input.rd#updateprivate(type="radio", name="type")
+              label.rdd(for="updateprivate") private
+            -if(boards.type === 'private')
+              input.rd#updatepublic(type="radio", name="type")
+              label.rdd(for="updatepublic") public
+              input.rd#updateprivate(type="radio", name="type", checked)
+              label.rdd(for="updateprivate") private
+        input.updatecloses(value="cancel")
+        input.updateok(type="submit", value="Update")
+  each member in boards.wsMembers
+    .profile-card(data-memberId= `${member.memberId.id}`)
+      .wrapper 
+        .close-profileCard 
+          i.bx.bxs-x-circle
+        a
+          img.card-img(src= `/img/${member.memberId.photo}`, alt="")
+        .user-n 
+          i.bx.bx-user
+          span= `${member.memberId.name}`
+        .place
+          i.bx.bx-envelope 
+          span= `${member.memberId.email}`
+        .num-card
+          i.bx.bx-notepad= `${member.memberId.workspaces.length}`
+          br
+          i.bx.bx-credit-card-front= `${boards.boards.length + boards.boards.length}`
+        .content 
+          i.bx.bx-male-female
+          span= `${member.memberId.gender}`
+  .notification-box 
+    .notification 
+      i.bx.bxs-bell
+      span.num-notification= `${user.tagsOnCards.length}`
+      ul 
+        each tag in user.tagsOnCards
+          li
+            span.img-noti 
+              img(src= `/img/${tag.cardOwner.photo}`)
+            span.text-noti.li-tag-on-card(data-boardid= `${tag.board}`)= `${tag.cardOwner.name} tags u on ${tag.cardName}`
+
+  .world 
+    i.bx.bx-world
+    span.numW= `${user.invitedWorkspaces.length}`
+    .dropdown-world
+      ul 
+        each invite in user.invitedWorkspaces
+          li
+            .notify-item 
+              .notify-img 
+                img(src= `/img/${invite.wsOwner.photo}`)
+              .notify-info 
+                p= `${invite.wsOwner.name} invite you to ` 
+                  span= `${invite.wsName}`
+              .notify-btn 
+                button.accept(data-inviteid= `${invite._id}`) Accept 
+                button.not(data-inviteid= `${invite._id}`) decline 
+  .alert.hide_Error
+    span
+      i.bx.bxs-error-circle
+    span.msg-error there is no user with this email address !
+    span.close-error 
+      //- span 
+      //-   i.bx.bx-error
+    

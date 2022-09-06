@@ -1,0 +1,143 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500;700;800&family=Work+Sans:wght@200;300;400;500;600;700;800&display=swap');
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root{
+  --main-c: #0c244a;
+  --sec-c: #f5f5f5;
+  --text-c:#898c9b;
+}
+
+body{
+  font-family: 'Open Sans', sans-serif;
+  font-family: 'Playfair Display', serif;
+  font-family: 'Poppins', sans-serif;
+  font-family: 'Work Sans', sans-serif;
+  overflow-x: hidden;
+  min-height: 100vh;
+  background: #4844440d;
+  display: flex;
+  position: relative;
+}
+.error-page{
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  /* padding-top: 80px; */
+  height: auto;
+  background: linear-gradient(26deg, #f5f5f5, rgb(137 140 155));
+  width: 100%;
+}
+
+.img-error {
+  width: 50%;
+  height: auto;
+  display: flex;
+  margin-left: 50px;
+  justify-content: center;
+}
+
+.img-error img{
+  width: 450px;
+  height: auto;
+  z-index: 1;
+
+}
+
+.blob-error{
+  
+  position: absolute;
+  width: 500px;
+  left: 9%;
+  top: 20%;
+
+}
+
+.error-text {
+  width: 50%;
+  height: auto;
+  padding-left: 15px;
+  position: relative;
+  top: 26%;
+  font-family: monospace;
+}
+
+.error-text h1{
+  margin: 0 0 30px 0;
+  /* margin-bottom: 24px; */
+  font-size: 140px;
+  color: #e8e8ea;
+  padding-top: -2px;
+}
+
+.error-text  h3{
+  color: #2f2e41;
+  padding-bottom: 16px;
+  font-size: 40px;
+}
+
+.error-text p{
+  max-width: 70%;
+  font-size: 20px;
+}
+
+.error-text a{
+  text-decoration: none;
+}
+
+.error-text a button{
+  background: transparent;
+  width: 150px;
+  height: 35px;
+  border: 2px solid var(--main-c);
+  border-radius: 30px;
+  margin-top: 20px;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.error-text a button:hover{
+  color: var(--sec-c);
+  background: var(--main-c);
+  transition: 0.3s ease-in-out;
+}
+
+@media only screen and (max-width: 900px) {
+
+  .error-page{
+    display: block;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin: auto;
+  }
+  .img-error {
+    width: 90%;
+    margin:auto;
+  }
+  .img-error img{
+    width: 60%;
+    height: auto;
+  }
+  .error-text {
+    width: 90%;
+    margin: auto;
+    text-align: center;
+  }
+  .error-text  h1{
+    font-size: 20vw;
+  }
+  .error-text h3{
+    font-size: 7vw;
+  }
+  .error-text p{
+    width: 90%;
+    margin: auto;
+    font-size: 4vw;
+  }
+}

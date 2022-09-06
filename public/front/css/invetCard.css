@@ -1,0 +1,322 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500;700;800&family=Work+Sans:wght@200;300;400;500;600;700;800&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  transition: all 0.3s linear;
+  text-transform: capitalize;
+}
+
+:root {
+  --main-c: #0c244a;
+  --sec-c: #f5f5f5;
+  --text-c: #898c9b;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  font-family: 'Playfair Display', serif;
+  font-family: 'Poppins', sans-serif;
+  font-family: 'Work Sans', sans-serif;
+  overflow-x: hidden;
+  min-height: 100vh;
+  background: #4844440d;
+  display: flex;
+  position: relative;
+  color: var(--color-dark);
+}
+
+.invet-container {
+  width: 100%;
+  height: calc(100vh - 100px);
+  display: flex;
+  flex-wrap: wrap;
+  position: absolute;
+  background-color: transparent;
+  top: 60px;
+  background: transparent;
+  left: 10px;
+}
+
+.Home-invet {
+  position: relative;
+  left: -40%;
+  cursor: pointer
+}
+
+.invet-box {
+  background: linear-gradient(26deg, #4150a5 0%, #9face6 100%);
+  width: 269px;
+  height: max-content;
+  border-radius: 7em 5px 5em 5px;
+  position: relative;
+  margin: 19px;
+  box-shadow: 13px 14px 20px rgb(25 40 161 / 46%);
+  color: #d4d7ff;
+  font-family: serif;
+}
+
+.card-header {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 1em 0.5em 1px 0;
+  color: #4150a5;
+
+}
+
+.card-profile {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 5em;
+}
+
+.card-profile .name-invet {
+  position: absolute;
+  left: -1em;
+  top: 3.7em;
+  padding: 0.7em 2.5em;
+  border-radius: 5px 3em 5px 3em;
+  background: #4150a5;
+  color: #d4d7ff;
+  box-shadow: 15px 5px 25px rgb(65 80 165);
+}
+
+.card-profile .name-invet h4 {
+  margin: 0;
+}
+
+
+.card-body {
+  padding: 9px;
+  margin-bottom: 1em;
+}
+
+.card-body h3 {
+  margin-bottom: 10px;
+  font-size: 17px;
+  line-height: 28px;
+  position: relative;
+}
+
+.card-body h3::before {
+  position: absolute;
+  content: "";
+  width: 50%;
+  height: 1px;
+  bottom: 0;
+  background: #2a3ca7;
+
+}
+
+.card-body small {
+  font-size: 13px;
+}
+
+.invet-btn {
+  font-size: 20px;
+  position: absolute;
+  bottom: -1.5em;
+  right: 3em;
+  padding: 12px;
+  background: #4150a5;
+  border-radius: 5px 5px 3em 5px;
+  transition: 0.4s;
+  box-shadow: 0 0 15px #4150a5;
+  cursor: pointer
+}
+
+.invet-btn:hover {
+  transform: translateY(-8px);
+}
+
+.invet-mg {
+  position: fixed;
+  right: 0;
+  /* width: 300px; */
+  bottom: 34px;
+  /* height: 300px; */
+  z-index: -2222;
+
+}
+
+.invet-mg img {
+  opacity: 0.6;
+  width: 450px;
+  height: 400px;
+  position: relative;
+  left: 0%;
+}
+
+.movePage ul {
+  position: absolute;
+  /* top: 50%;
+   */
+  bottom: 2%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0;
+  padding: 0;
+  display: flex;
+  cursor: pointer;
+}
+
+.num-move {
+  font-size: 30px;
+  position: absolute;
+  /* top: 50%; */
+  bottom: 3%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0;
+  padding: 0;
+  display: flex;
+  cursor: pointer;
+  color: #4150a5;
+  font-weight: 600;
+  padding: 2px;
+}
+
+.num-move span {
+  padding-right: 7px;
+  padding-left: 5px;
+  border-right: 1px solid #4150a5;
+}
+
+
+.movePage ul li {
+  list-style: none;
+  width: 45px;
+  height: 45px;
+  background: #c6c9d3;
+  margin: 0 35px;
+  margin-bottom: 2px;
+  border-radius: 50%;
+  transition: 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 53px;
+  color: #4150a5;
+}
+
+.movePage ul li:hover {
+  background: #4150a5;
+  color: #c6c9d3;
+}
+
+
+
+
+/* .invet-box {
+  width: 210px;
+  height: max-content;
+  background-color: #f5f5f5;
+  border-radius: 22px;
+  padding: 8px;
+  padding-top: 61px;
+  margin: 14px;
+  text-align: center;
+  letter-spacing: 1px;
+  box-shadow: 0 3px 5px rgb(0 0 0 / 30%);
+  overflow: hidden;
+  position: relative;
+  z-index: 0;
+  font-family: serif;
+  border: 1px solid #909edc;
+}
+
+.invet-box  h3{
+  overflow-wrap: break-word;
+  font-size: 26px;
+  color: var(--main-c);
+  white-space: pre-wrap;
+  margin-top: 11px;
+}
+
+.invet-box  h4{
+  font-size: 19px;
+  font-weight: 500;
+  color: #333;
+  padding-top: 12px;
+}
+.invet-box  h5{
+  font-size: 12px;
+  font-weight: 400;
+  color: #333;
+  padding: 5px 0 12px 0;
+}
+.invet-box p{
+  font-size: 14px;
+  color: var(--text-c);
+}
+.invet-box .invet-btn{
+  width: 90px;
+  height: 35px;
+  background-color: #94a1df;
+  color: #fff;
+  border: none;
+  outline: none;
+  font-size: 20px;
+  cursor: pointer;
+  border-radius: 50px;
+  margin-top: 20px;
+}
+.invet-box .invet-btn:hover{
+  letter-spacing: 2px;
+  opacity: 0.8;
+}
+
+.invet-box::before{
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+.invet-box::after{
+  width: 100%;
+  height: 100%;
+  background-color: #4150a5;
+  background-image: linear-gradient(26deg, #4150a5 0%, #9face6 100%);
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -2;
+  clip-path: circle(20% at 90% 4%);
+  transition: 0.6s;
+}
+.invet-box .invet-count{
+  position: absolute;
+  top: 15px;
+  right: 30px;
+  font-size: 50px;
+font-weight: bolder;
+color: #fff;
+}
+
+.invet-box:hover::after{
+  clip-path: circle(100%);
+}
+
+.invet-box:hover h3,
+.invet-box:hover h4,
+.invet-box:hover h5,
+.invet-box:hover p{
+  color: #fff;
+}
+
+.invet-box:hover .invet-btn{
+  color: #333;
+  background-color: #fff;
+}
+
+.invet-box:hover ::before{
+  background-color: rgba(0, 0, 0, 0.1);
+} */

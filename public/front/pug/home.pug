@@ -1,0 +1,103 @@
+extends base
+
+block content
+  .navigation
+    .profile
+      .img-nav
+        img(src="./svg/IMG-20220402-WA0021.jpg", alt="")
+    ul.menu 
+      li.tooltip-element(data-tooltip="0")
+        a(href="#")
+          span.icon 
+            i.bx.bx-home-alt-2
+      li.tooltip-element(data-tooltip="1")
+        a(href="#")
+          soan.icon 
+            i.bx.bx-id-card
+      li.tooltip-element(data-tooltip="2")
+        a(href="#")
+          span.icon 
+            i.bx.bx-notepad
+      li.tooltip-element(data-tooltip="3")
+        a(href="#")
+          span.icon 
+            i.bx.bx-user
+      li.tooltip-element(data-tooltip="4")
+        a(href="#")
+          span.icon 
+            i.bx.bx-log-out
+      .tooltip 
+        span.show Home
+        span My Cards
+        span My boards
+        span Profile
+        span Logout
+  header
+    .user-header
+      i.bx.bx-user
+      h3.user-name-header Rokia alhosseny
+    ul 
+      li 
+        a(href="#") About
+      li.work 
+        i.bx.bxs-chevron-down 
+        a(href="#") Workspace
+          ul.workspace
+            li 
+              a(href="#") my workspace
+            li 
+              a.btn(href="#" type="button") create 
+      li 
+        a.add(href="#")
+          i.bx.bx-plus 
+      li 
+        a.add(href="#")
+          i.bx.bx-user
+  .footer 
+    .copy-div 
+      p.copyright Copyright &copy; 2022
+    .social-footer
+      ul.social-icons
+        li 
+          a(href="#")
+            i.bx.bxl.facebook 
+        li 
+          a(href="#")
+            i.bx.bxl-google 
+        li 
+          a(href="#")
+            i.bx.bxl-linkedin
+  .mainn
+    .card 
+      .card-image
+    .card-text
+      h2.data My work 
+      h3 About 
+      p helloo 
+    .card-stats
+      .stat 
+        .icon-card.svg-icon
+          img.svgg(src="../img/h.svg", alt="")
+          img.svgg.none(src="../img/m.svg", alt="")
+      .stat.border
+        .value 70
+        .icon-card
+          i.bx.bx-group
+      .stat 
+        .value Visit 
+        .icon-card 
+          i.bx.bx-log-circle 
+  .create-model
+    .modal 
+      h3 New Workspace
+      form.create-form
+        input.closes(type="submit", value="cancel")   
+        input.ok(type="submit", value="create")
+        .single-in 
+          input.input(type="text", id="name", required)
+          label(for="name") title 
+        .single-in 
+          label.select type
+            select#(name="type") 
+              option(value="1") puplic 
+              option(value="2") privet 

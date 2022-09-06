@@ -1,0 +1,112 @@
+[
+  {
+    "_id": "20576d5afc13ae01fe0008d0",
+    "wsName": "My Workspace",
+    "wsOwner": "10576d5afc13ae01fe0007d0",
+    "background": "back-ground-2.jpg",
+    "wsDescreption": "bla bla for workspace",
+    "type": "public",
+    "wsMembers": [
+      {
+        "_id": "50576d5afc13ae01fe0007d0",
+        "memberId": "10576d5afc13ae01fe0007d0",
+        "role": "owner"
+      },
+      {
+        "_id": "50576d5afc13ae01fe0007d1",
+        "memberId": "10576d5afc13ae01fe0008d0",
+        "role": "admin"
+      },
+      {
+        "_id": "50576d5afc13ae01fe0007d2",
+        "memberId": "10576d5afc13ae01fd0007d0",
+        "role": "user"
+      }
+    ]
+  },
+  {
+    "_id": "20576d5afc13ae01fe0008d1",
+    "wsName": "My Workspace X",
+    "wsOwner": "10576d5afc13ae01fe0007d0",
+    "background": "",
+    "wsDescreption": "bla bla for workspace X",
+    "type": "public",
+    "wsMembers": [
+      {
+        "_id": "50576d5afc13ae01fe0007d3",
+        "memberId": "10576d5afc13ae01fe0007d0",
+        "role": "owner"
+      },
+      {
+        "_id": "50576d5afc13ae01fe0007d4",
+        "memberId": "10576d5afc13ae01fe0008d0",
+        "role": "admin"
+      },
+      {
+        "_id": "50576d5afc13ae01fe0007d5",
+        "memberId": "10576d5afc13ae01fd0007d1",
+        "role": "user"
+      }
+    ]
+  },
+  {
+    "_id": "20576d5afc13ae01fe0008d2",
+    "wsName": "My Workspace 2",
+    "wsOwner": "10576d5afc13ae01fe0008d0",
+    "background": "",
+    "wsDescreption": "bla bla for workspace 2",
+    "type": "public",
+    "wsMembers": [
+      {
+        "_id": "50576d5afc13ae01fe0007d6",
+        "memberId": "10576d5afc13ae01fe0007d0",
+        "role": "user"
+      },
+      {
+        "_id": "50576d5afc13ae01fe0007d7",
+        "memberId": "10576d5afc13ae01fe0008d0",
+        "role": "owner"
+      }
+    ]
+  },
+  {
+    "_id": "20576d5afc13ae01fe0008d3",
+    "wsName": "My Workspace 3",
+    "wsOwner": "10576d5afc13ae01fe0008d0",
+    "background": "",
+    "wsDescreption": "bla bla for workspace 3",
+    "type": "public",
+    "wsMembers": [
+      {
+        "_id": "50576d5afc13ae01fe0007d8",
+        "memberId": "10576d5afc13ae01fe0007d0",
+        "role": "user"
+      },
+      {
+        "_id": "50576d5afc13ae01fe0007d9",
+        "memberId": "10576d5afc13ae01fe0008d0",
+        "role": "owner"
+      },
+      {
+        "_id": "50576d5afc13ae01fe000710",
+        "memberId": "10576d5afc13ae01fd0007d1",
+        "role": "user"
+      }
+    ]
+  },
+  {
+    "_id": "20576d5afc13ae01fe0008d4",
+    "wsName": "My Workspace 4",
+    "wsOwner": "10576d5afc13ae01fe0008d0",
+    "background": "",
+    "wsDescreption": "bla bla for workspace 4",
+    "type": "public",
+    "wsMembers": [
+      {
+        "_id": "50576d5afc13ae01fe000711",
+        "memberId": "10576d5afc13ae01fe0008d0",
+        "role": "owner"
+      }
+    ]
+  }
+]
